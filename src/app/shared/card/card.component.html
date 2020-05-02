@@ -1,0 +1,17 @@
+<div class="card" style="width: 18rem">
+    <div class="card-body">
+      <h5 class="card-title">{{medicine.name}}        {{medicine.id}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Price: {{medicine.price | currency:'INR'}}</h6>
+      <p class="card-text">{{medicine.description}}</p>
+    
+      <button class="btn btn-primary" *ngIf="medicineQuantity === 0; else quantityNumber" (click)="addMedicine()">Add</button>
+ 
+      <ng-template #quantityNumber>
+        <div class="quantityNumber">
+            <button type="button" class="btn btn-light btn-sm" (click)="addQuantity(-1)"> - </button>
+            <span class="text-margin">{{medicineQuantity}}</span>
+            <button type="button" class="btn btn-primary btn-sm" (click)="addQuantity(1)"> + </button>
+          </div>
+      </ng-template>
+    </div>
+  </div>

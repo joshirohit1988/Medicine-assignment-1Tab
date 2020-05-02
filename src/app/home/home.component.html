@@ -1,0 +1,7 @@
+
+
+<p class="m-3"> Please click on Add button to add the Medicines in the table</p>
+<div *ngIf="availableMedicines$ | async as medicines" class="d-flex flex-wrap">
+    <app-card *ngFor="let medicine of medicines" [medicine]="medicine"
+     (addMedicineEvent)="addMedicine($event)" (updateMedicineEvent)="updateMedicine($event)"></app-card>
+</div>

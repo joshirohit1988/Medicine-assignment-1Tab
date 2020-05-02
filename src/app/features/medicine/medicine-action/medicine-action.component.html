@@ -1,0 +1,88 @@
+<div class="card">
+    <div class="card-header">
+        {{pageTitle}}
+    </div>
+
+    <div class="card-body">
+        <form novalidate #medicineForm="ngForm" *ngIf="medicine">
+
+            <div class="form-group row">
+                <label class="col-md-2 col-form-label" for="medicineNameId">Medicine Name</label>
+                <div class="col-md-8">
+                    <input class="form-control" id="medicineNameId" type="text" placeholder="Name (required)" required 
+                        minlength="3" [(ngModel)]= "medicine.name" name="name" #medicineNameVar="ngModel"
+                        [ngClass]="{'is-invalid': (medicineNameVar.touched || medicineNameVar.dirty) && !medicineNameVar.valid }" />
+                    <span class="invalid-feedback">
+                        <span *ngIf="medicineNameVar.errors?.required">
+                            Medicine name is required.
+                        </span>
+                        <span *ngIf="medicineNameVar.errors?.minlength">
+                            Medicine name must be at least three characters.
+                        </span>
+                    </span>
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <label class="col-md-2 col-form-label" for="descriptionId">Description</label>
+                <div class="col-md-8">
+                    <textarea class="form-control" id="descriptionId" placeholder="Description" rows=3
+                        [(ngModel)]=medicine.description name="description"></textarea>
+                </div>
+            </div>
+
+            
+            <div class="form-group row">
+                <label class="col-md-2 col-form-label" for="medicinePriceId">Medicine Price</label>
+                <div class="col-md-8">
+                    <input class="form-control" id="medicinePriceId" type="text" pattern="^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$"  placeholder="Price(required)" required
+                        [(ngModel)]=medicine.price name="medicinePrice" #medicinePriceVar="ngModel"
+                        [ngClass]="{'is-invalid': (medicinePriceVar.touched || medicinePriceVar.dirty) && !medicinePriceVar.valid }" />
+                    <span class="invalid-feedback">
+                        <span *ngIf="medicinePriceVar.errors?.required">
+                            Medicine price is required
+                        </span>
+                        <span *ngIf="medicinePriceVar.errors?.pattern">
+                           Medicine Price should be a non-negative number
+                        </span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-md-2 col-form-label" for="medicineQuantityId">Medicine Quantity</label>
+                <div class="col-md-8">
+                    <input class="form-control" id="medicineQuantityId" type="number" pattern= "^[1-9][0-9]{0,2}$" placeholder="Quantity(required)" required
+                        [(ngModel)]=medicine.quantity name="medicineQuantity" #medicineQuantityVar="ngModel"
+                        [ngClass]="{'is-invalid': (medicineQuantityVar.touched || medicineQuantityVar.dirty) && !medicineQuantityVar.valid }" />
+                    <span class="invalid-feedback">
+                        <span *ngIf="medicineQuantityVar.errors?.required">
+                            Medicine Quantity is required.
+                        </span>
+                        <span *ngIf="medicineQuantityVar.errors?.pattern">
+                            Medicine Quantity should be Integer and betweeen 1 to 999
+                         </span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group row mb-2">
+                <div class="col-md-4">
+                    <button class="btn btn-primary mr-3" style="width:80px" type="button"
+                        [title]="medicineForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                        [disabled]="!medicineForm.valid" (click)="saveMedicine()">
+                        Save
+                    </button>
+                    <button class="btn btn-outline-secondary mr-3" style="width:80px" type="button"
+                        title="Cancel your edits" routerLink="/medicines">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}
+</div>

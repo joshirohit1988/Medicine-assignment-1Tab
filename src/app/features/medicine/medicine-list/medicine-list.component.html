@@ -1,0 +1,51 @@
+<div class="card">
+    <div class="card-header">
+        {{title}}
+    </div>
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-sm" *ngIf="this.medicines$ | async as medicines">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let medicine of medicines">
+                        <td>{{ medicine.name }}</td>
+                        <td>{{ medicine.description }}</td>
+                        <td>{{ medicine.price | currency:'INR'}}</td>
+                        <td>{{ medicine.quantity }}</td>
+                        <td>
+                            <div class="d-flex flex-wrap">
+                                <button class="btn btn-outline-primary btn-sm m-1" [routerLink]="[medicine.id, 'edit']">
+                                    Edit
+                                </button>
+                                <button class="btn btn-outline-primary btn-sm m-1" (click)="deleteMedicine(medicine)">
+                                    Delete
+                                </button>
+                                <button class="btn btn-outline-primary btn-sm m-1" [routerLink]="[medicine.id, 'clone']">
+                                    Clone
+                                </button>
+                            </div>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+        </div>
+
+    </div>
+</div>
+
+<div *ngIf="errorMessage" class="alert alert-danger">
+    Error: {{ errorMessage }}
+</div>
