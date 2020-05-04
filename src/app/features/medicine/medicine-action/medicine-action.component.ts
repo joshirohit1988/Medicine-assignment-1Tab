@@ -29,7 +29,14 @@ export class MedicineActionComponent implements OnInit {
       } else {
         this.onMedicineRetrieved(this._medicineService.initializeMedicine(), ActionMode.add);
       }
-      this.errorMessage = resolvedData?.error;
+
+      /**
+       * stackblitz was giving error thus replacing this expression
+       * */
+      if(resolvedData && resolvedData.error){
+        this.errorMessage = resolvedData?.error;
+      }
+
     });
 
   }
