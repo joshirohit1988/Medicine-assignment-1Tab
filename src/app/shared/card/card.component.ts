@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Medicine } from 'src/app/features/medicine/models/medicine.model';
+import { Medicine } from '../../features/medicine/models/medicine.model';
 
 @Component({
   selector: 'app-card',

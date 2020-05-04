@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MedicineListComponent } from './medicine-list/medicine-list.component';
 import { RouterModule } from '@angular/router';
-import { SharedModule } from 'src/app/shared/shared.module';
+import { SharedModule } from '../../shared/shared.module';
 import { MedicineActionComponent } from './medicine-action/medicine-action.component';
 import { FormsModule } from '@angular/forms';
 import { MedicineResolver } from './medicine-resolver.service';

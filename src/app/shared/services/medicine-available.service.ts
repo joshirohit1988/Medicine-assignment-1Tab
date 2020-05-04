@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, combineLatest } from 'rxjs';
-import { Medicine } from 'src/app/features/medicine/models/medicine.model';
+import { Medicine } from '../../features/medicine/models/medicine.model';
 import { HttpClient } from '@angular/common/http';
-import { MedicineService } from 'src/app/features/medicine/services/medicine.service';
+import { MedicineService } from '../../features/medicine/services/medicine.service';
 import { AVAILABLE_MEDICINES } from './available-medicine.data';
 import { map } from 'rxjs/operators';
 
