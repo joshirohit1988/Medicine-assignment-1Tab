@@ -34,7 +34,7 @@ export class MedicineActionComponent implements OnInit {
        * stackblitz was giving error thus replacing this expression
        * */
       if(resolvedData && resolvedData.error){
-        this.errorMessage = resolvedData?.error;
+        this.errorMessage = resolvedData.error;
       }
 
     });
