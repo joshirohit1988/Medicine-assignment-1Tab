@@ -1,8 +1,8 @@
-<div class="card" style="width: 18rem">
+<div class="card" style="width: 20rem">
     <div class="card-body">
       <h5 class="card-title">{{medicine.name}}</h5>
       <h6 class="card-subtitle mb-2 text-muted">Price: {{medicine.price | currency:'INR'}}</h6>
-      <p class="card-text">{{medicine.description}}</p>
+      <p class="card-text card-text-height">{{medicine.description}}</p>
     
       <button class="btn btn-primary" *ngIf="medicineQuantity === 0; else quantityNumber" (click)="addMedicine()">Add</button>
  

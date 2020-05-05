@@ -1,11 +1,12 @@
-<div class="card">
+
+<div class="card mx-md-4">
     <div class="card-header">
         {{title}}
     </div>
 
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered table-sm" *ngIf="this.medicines$ | async as medicines">
+            <table class="table table-bordered" *ngIf="this.medicines$ | async as medicines">
                 <thead class="thead-light">
                     <tr>
                         <th>Name</th>

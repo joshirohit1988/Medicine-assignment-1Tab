@@ -2,3 +2,28 @@
     margin: 10px;
     padding: 10px;
 }
+
+
+ @media (max-width: 575.98px) { 
+    .card{
+      margin: 1px;  
+    }
+
+    .card-body {
+        padding: .25rem;
+    }
+
+    .table td, .table th {
+        padding: .25rem;
+        font-size: .85rem;
+    }
+
+  }
+
+  th{
+    text-align: center;
+  }
+
+  td {
+    text-align: justify;
+  }

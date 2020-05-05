@@ -1,7 +1,17 @@
-
-
 <p class="m-3"> Please click on Add button to add the Medicines in the table</p>
-<div *ngIf="availableMedicines$ | async as medicines" class="d-flex flex-wrap">
-    <app-card *ngFor="let medicine of medicines" [medicine]="medicine"
-     (addMedicineEvent)="addMedicine($event)" (updateMedicineEvent)="updateMedicine($event)"></app-card>
+
+<div class="form-group row">
+
+    <div class="col-sm-4 ml-4">
+        <input class="form-control" id="medicineNameId" type="text" [formControl]="searchbox"
+            placeholder="Enter the medicine name or description to filter the results" />
+
+    </div>
+</div>
+
+
+
+<div *ngIf="availableMedicines$ | async as medicines" class="card-deck">
+    <app-card *ngFor="let medicine of medicines" [medicine]="medicine" (addMedicineEvent)="addMedicine($event)"
+        (updateMedicineEvent)="updateMedicine($event)"></app-card>
 </div>
