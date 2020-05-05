@@ -25,5 +25,9 @@
   }
 
   td {
+    text-align: center;
+  }
+
+  td:nth-child(2) {
     text-align: justify;
   }
